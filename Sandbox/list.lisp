@@ -89,6 +89,18 @@
           (cons (at-first l) (at-filter f (at-rest l)))
           (at-filter f (at-rest l)))))
 
+; Semi-Optimized way, by using recycling (side effect)
+;(defun at-filter (f l)
+  ;(let ((filtered nil))
+    ;(labels ((at-filter-recursive (_f _l)
+               ;(if (null _l)
+                   ;filtered
+                   ;(let ((curr (at-first _l))
+                         ;(if (funcall _f curr)
+                             ;(cons curr (at-filter-recursive _f (at-rest _l)))
+                             ;(at-filter-recursive _f (at-rest _l))))))))
+      ;(at-filter-recursive f l))))
+
 ; Tree
 ; 
 ; Representation :
